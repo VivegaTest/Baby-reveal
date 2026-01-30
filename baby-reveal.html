@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baby Reveal 💕</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff1f8, #eef7ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  .options {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  .boy { background: #b3e5ff; }
+  .girl { background: #ffb3d9; }
+  .surprise { background: #d9c3ff; }
+
+  .hidden {
+    display: none;
+  }
+
+  .guess {
+    margin-top: 15px;
+    color: #555;
+    font-size: 16px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>What do you think? 👶</h1>
+  <p>Make your guess first!</p>
+
+  <div class="options" id="options">
+    <button class="boy" onclick="selectGuess('Boy 💙')">Boy 💙</button>
+    <button class="girl" onclick="selectGuess('Girl 🎀')">Girl 🎀</button>
+    <button class="surprise" onclick="selectGuess('Surprise ✨')">Surprise ✨</button>
+  </div>
+
+  <div class="guess hidden" id="guessText"></div>
+</div>
+
+<script>
+  const videoLink = "https://prodnalab.com/wp-content/uploads/2026/01/IaBWithMus.mp4";
+
+  function selectGuess(choice) {
+    // Hide options
+    document.getElementById('options').classList.add('hidden');
+
+    // Show user's guess
+    const guessText = document.getElementById('guessText');
+    guessText.textContent = "You guessed: " + choice;
+    guessText.classList.remove('hidden');
+
+    // Wait 1.5 seconds, then open the video link in a new tab
+    setTimeout(() => {
+      window.open(videoLink, "_blank");
+    }, 1500);
+  }
+</script>
+
+</body>
+</html>
